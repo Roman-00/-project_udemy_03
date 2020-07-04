@@ -3,8 +3,12 @@ import MiniSlider from './modules/slider/slider-mini';
 import VideoPlayer from './modules/playVideo';
 import Difference from './modules/difference';
 import Form from './modules/forms';
+import ShowInfo from './modules/showinfo';
+import Download from './modules/download';
+
 
 window.addEventListener('DOMContentLoaded', () => {
+    'use strict';
     const slider = new MainSlider({btns: '.next', container: '.page'});
     slider.render();
 
@@ -38,9 +42,13 @@ window.addEventListener('DOMContentLoaded', () => {
     });
     feedSlider.init();
 
-    const player = new VideoPlayer('.showup .play', '.overlay');
-    player.init();
+    new VideoPlayer('.showup .play', '.overlay').init();
+    new VideoPlayer('.module__video-item .play', '.overlay').init();
 
     new Difference('.officerold', '.officernew', '.officer__card-item').init();
     new Form('.form').init();
+
+    new ShowInfo('.plus__content').init();
+
+    new Download('.download').init();
 });
